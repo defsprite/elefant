@@ -1,0 +1,10 @@
+table
+  thead
+    tr
+      - fields.each do |field|
+        th #{field}
+  tbody
+    - rows.each do |row|
+      tr
+        - fields.each do |field|
+          td #{row[field]}

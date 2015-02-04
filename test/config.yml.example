@@ -1,0 +1,4 @@
+adapter: postgresql
+database: elephant_test
+user: postgres
+password:
