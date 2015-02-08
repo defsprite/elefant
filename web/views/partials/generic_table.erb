@@ -1,0 +1,23 @@
+<table>
+  <thead>
+  <tr>
+    <% if rows.empty? %>
+      <th>Empty results!</th>
+    <% else %>
+      <% fields = rows[0].keys  %>
+      <% fields.each do |field| %>
+        <th><%= field %></th>
+      <% end %>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% rows.each do |row| %>
+    <tr>
+      <% fields.each do |field| %>
+        <td><%= row[field] %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

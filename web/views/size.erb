@@ -1,0 +1,22 @@
+<h2>Welcome to the elephant</h2>
+
+<h3><%= stats.db_name %></h3>
+<%= partial 'partials/generic_table', :locals => {:rows => param_stats('size')} %>
+
+<h3>Top 20</h3>
+<%= partial 'partials/generic_table', :locals => {:rows => param_stats('top_sizes', [20])} %>
+
+<!--puts 'Top twenty objects by size:'-->
+<!--puts '-' * 70-->
+<!--top_twenty.each do |row|-->
+  <!--type = case row['kind']-->
+       <!--when 'i'; 'index'-->
+       <!--when 't'; 'toast'-->
+       <!--when 'r'; 'table'-->
+       <!--when 'S'; 'sequence'-->
+       <!--else;     '???'-->
+       <!--end-->
+
+  <!--puts "%40s %10s (%s)" % [ row['name'], row['size'], type ]-->
+<!--end-->
+<!--puts '-' * 70-->

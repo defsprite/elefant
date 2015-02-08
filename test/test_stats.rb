@@ -1,4 +1,4 @@
-require './test_helper'
+require 'helper'
 require 'elephant/stats'
 
 class TestStats < PGTest
@@ -9,15 +9,15 @@ class TestStats < PGTest
       @stats = Elephant::Stats.new
     end
 
-    it "should retrieve the activity stats" do
+    it "retrieves the activity stats" do
       assert_instance_of Array, @stats.get('activity')
     end
 
-    it "should retrieve the indices stats" do
+    it "retrieves the indices stats" do
       assert_instance_of Array, @stats.get('indices')
     end
 
-    it "should raise an ArgumentError if the query type is unknown" do
+    it "raises an ArgumentError if the query type is unknown" do
       assert_raises ArgumentError do
         @stats.get("totallyweirdunknownstatname")
       end

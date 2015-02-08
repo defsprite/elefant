@@ -1,22 +1,18 @@
-require 'test_helper'
+require 'helper'
 require 'rack/test'
-
 require 'elephant/web'
 
 ENV['RACK_ENV'] = 'test'
 
-class WebInterfaceTest < MiniTest::Unit::TestCase
+describe 'the elephant web interface' do
+  include Rack::Test::Methods
 
-  describe 'the elephant web interface' do
-    include Rack::Test::Methods
+  def app
+    Elephant::Web
+  end
 
-    def app
-      Elephant::Web
-    end
-
-    it 'should show basic database info' do
-      get '/'
-      assert last_response.ok?
-    end
+  it 'should show basic database info' do
+    get '/'
+    assert last_response.ok?
   end
 end

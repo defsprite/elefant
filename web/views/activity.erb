@@ -1,0 +1,4 @@
+<h2>Welcome to the elephant</h2>
+<h3>Activity Stats</h3>
+<% fields = %w(datname client_addr query_start waiting query) %>
+<%= partial 'partials/generic_table', :locals => {:rows => field_stats('activity', [fields]), :fields => fields} %>

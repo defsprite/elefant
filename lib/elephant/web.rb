@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/partial'
-require 'slim'
 
 module Elephant
   class Web < Sinatra::Base
@@ -13,39 +12,53 @@ module Elephant
     set :root, "#{dir}/public"
     # set :locales, "#{dir}/locales"
 
-    set :slim, :pretty => true
-    set :partial_template_engine, :slim
-    set :layout_engine, :slim
+    set :partial_template_engine, :erb
+    set :layout_engine, :erb
+
+    before do
+      @stats ||= Elephant::Stats.new
+    end
+
+    after do
+      @stats.close!
+    end
 
     helpers do
 
-      def stats(name)
+      def stats
         @stats ||= Elephant::Stats.new
-        @stats.get(name)
+      end
+
+      def field_stats(name, fields = ['*'])
+        stats.get(name, fields)
+      end
+
+      def param_stats(name, params = [])
+        stats.get(name, params)
       end
 
       def table_helper(fields, results)
       end
-
     end
 
     get '/' do
-      @rows = stats('tables')
-      slim :index
+      erb :index
     end
 
     get '/activity' do
-      @rows = stats('activity')
-      slim :activity
+      erb :activity
     end
 
     get '/indices' do
-      @rows = stats('indices')
-      slim :indices
+      erb :indices
     end
 
-    get '/test' do
-      slim :test
+    get '/load' do
+      erb :load
+    end
+
+    get '/size' do
+      erb :size
     end
 
   end

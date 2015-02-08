@@ -36,6 +36,10 @@ module Elephant
       @connection.alive?
     end
 
+    def db_name
+      @connection.db
+    end
+
     private
 
     def validate!(c)

@@ -1,10 +1,8 @@
-require "bundler/gem_tasks"
 require 'rake/testtask'
 
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'test'
-  test.warning = true
-  test.pattern = 'test/test_*.rb'
+Rake::TestTask.new do |task|
+  task.libs << %w(test lib)
+  task.pattern = 'test/test_*.rb'
 end
 
 task :default => :test
