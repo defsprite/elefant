@@ -19,6 +19,10 @@ Or install it yourself as:
 
 ## Usage
 
+### Standalone
+
+    $ DATABASE_URL=postgres:///some_local_db elefant-web
+
 - configure DATABASE_URL or ELEPHANT_DATABASE_URL
 - mount as rack app in rails
 - run standalone via rackup
