@@ -4,3 +4,4 @@ rvm:
   - 2.1.5
   - 2.0.0
   - 1.9.3
+before_install: cp test/config.yml.example test/config.yml
