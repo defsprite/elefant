@@ -1,4 +1,4 @@
-Copyright (c) 2013 Christoph Sassenberg
+Copyright (c) 2015 Christoph Sassenberg
 
 MIT License
 

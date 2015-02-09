@@ -18,7 +18,7 @@ module Elephant::Postgres
     end
 
     def select_generic(fields, name)
-      "SELECT #{fields * ', '} FROM #{name}"
+      "SELECT #{fields * ", "} FROM #{name}"
     end
 
     #IO_TABLES   = "SELECT * FROM pg_statio_user_tables;"

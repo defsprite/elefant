@@ -1,5 +1,5 @@
-require 'sinatra'
-require 'sinatra/partial'
+require "sinatra"
+require "sinatra/partial"
 
 module Elephant
   class Web < Sinatra::Base
@@ -29,7 +29,7 @@ module Elephant
         @stats ||= Elephant::Stats.new
       end
 
-      def field_stats(name, fields = ['*'])
+      def field_stats(name, fields = [["*"]])
         stats.get(name, fields)
       end
 
@@ -41,23 +41,23 @@ module Elephant
       end
     end
 
-    get '/' do
+    get "/" do
       erb :index
     end
 
-    get '/activity' do
+    get "/activity" do
       erb :activity
     end
 
-    get '/indices' do
+    get "/indices" do
       erb :indices
     end
 
-    get '/load' do
+    get "/load" do
       erb :load
     end
 
-    get '/size' do
+    get "/size" do
       erb :size
     end
 

@@ -1,6 +1,6 @@
-require 'elephant/version'
-require 'elephant/connection_adapter'
-require 'elephant/stats'
+require "elephant/version"
+require "elephant/connection_adapter"
+require "elephant/stats"
 
 module Elephant
 

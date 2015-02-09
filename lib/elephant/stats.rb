@@ -1,6 +1,6 @@
-require 'elephant/connection_adapter'
-require 'elephant/postgres/stat_queries'
-require 'elephant/postgres/size_queries'
+require "elephant/connection_adapter"
+require "elephant/postgres/stat_queries"
+require "elephant/postgres/size_queries"
 
 module Elephant
   class Stats
@@ -30,9 +30,7 @@ module Elephant
 
       if respond_to?(method)
         query = send(method, *params)
-        result = @connection.execute(query)
-        puts result
-        result
+        @connection.execute(query)
       else
         raise ArgumentError.new("Unknown Stats Query: #{name}")
       end

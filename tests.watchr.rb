@@ -4,26 +4,22 @@
 # --------------------------------------------------
 # Rules
 # --------------------------------------------------
-watch( '^test.*/test_.*\.rb'                 )  { ruby tests } #{ |m| ruby  m[0] }
-watch( '^lib/(.*)\.rb'                       )  { ruby tests } #{ |m| ruby "test/test_#{m[1]}.rb" }
-watch( '^test/test_helper\.rb'               )  { ruby tests }
+watch( '^test.*/*_test.*\.rb'                 ) { rake } # or run specific one { |m| ruby m[0] }
+watch( '^lib/(.*)\.rb'                       )  { rake } # { |m| ruby "test/test_#{m[1]}.rb" }
+watch( '^test/test_helper\.rb'               )  { rake }
 
 # --------------------------------------------------
 # Signal Handling
 # --------------------------------------------------
-Signal.trap('QUIT') { ruby tests  } # Ctrl-\
+Signal.trap('QUIT') { rake  } # Ctrl-\
 Signal.trap('INT' ) { abort("\n") } # Ctrl-C
 
 # --------------------------------------------------
 # Helpers
 # --------------------------------------------------
-def ruby(*paths)
+def rake
   run "clear"
-  run "bundle exec ruby -I.:lib:test -e'%w( #{paths.flatten.join(' ')} ).each {|p| require p }'"
-end
-
-def tests
-  Dir['test/**/test_*.rb'] - ['test/test_helper.rb']
+  run "bundle exec rake"
 end
 
 def run( cmd )

@@ -1,12 +1,13 @@
-# Elephant
+# Elefant
 
-TODO: Write a gem description
+When you are running a small / medium sized project, there is usually not a dedicated DBA and you rarely care about the database analytics that PostgreSQL gives you for free.
+Elefant tries to help a little with that by providing a small mountable rack application, that gives you a few insights into your database.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'elephant'
+    gem 'elefant'
 
 And then execute:
 
@@ -14,11 +15,17 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install elephant
+    $ gem install elefant
 
 ## Usage
 
-TODO: Write usage instructions here
+- configure DATABASE_URL or ELEPHANT_DATABASE_URL
+- mount as rack app in rails
+- run standalone via rackup
+
+## TODO
+
+- detect active record and use connection from pool.
 
 ## Contributing
 
