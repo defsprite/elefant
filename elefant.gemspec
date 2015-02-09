@@ -17,8 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency 'pg', '~> 0.11'
-  # gem.add_dependency 'activerecord'
+  gem.add_dependency 'pg', '~> 0.15'
   gem.add_dependency 'sinatra'
   gem.add_dependency 'sinatra-partial'
 
