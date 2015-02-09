@@ -1,5 +1,6 @@
 require "sinatra"
 require "sinatra/partial"
+require "elephant"
 
 module Elephant
   class Web < Sinatra::Base
