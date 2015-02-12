@@ -12,7 +12,11 @@ module Elephant
     end
 
     def db_name
-      @connection.db_name
+      @connection.info[:db_name]
+    end
+
+    def version
+      @connection.info[:server_version]
     end
 
     def get(name, params)
@@ -23,14 +27,23 @@ module Elephant
       @connection.disconnect
     end
 
+    def self.check!
+      connection = Elephant::ConnectionAdapter.new
+      raise ArgumentError.new("Could not establish connection") unless connection.alive?
+      connection.disconnect
+    end
+
     private
+
+    def exec(query, params = [])
+      @connection.execute(query, params)
+    end
 
     def query(name, params)
       method = name.to_sym
 
       if respond_to?(method)
-        query = send(method, *params)
-        @connection.execute(query)
+        send(method, *params)
       else
         raise ArgumentError.new("Unknown Stats Query: #{name}")
       end

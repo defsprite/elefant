@@ -3,7 +3,7 @@ module Elephant
     module SizeQueries
 
       def top_sizes(limit = 20)
-        %Q{
+        exec %Q{
           SELECT
             relname AS name,
             relkind AS kind,
@@ -16,12 +16,12 @@ module Elephant
         }
       end
 
-      def size(database = @connection.db_name)
-        %Q{
+      def size
+        exec %Q{
           SELECT
-            '#{database}' AS db_name,
-            count(oid) AS num_relations,
-            pg_size_pretty(pg_database_size('#{database}')) AS dbsize
+            '#{@connection.db_name}' AS db_name,
+            count(oid) AS num_rels,
+            pg_size_pretty(pg_database_size('#{@connection.db_name}')) AS dbsize
           FROM
             pg_class
         }
@@ -29,4 +29,3 @@ module Elephant
     end
   end
 end
-

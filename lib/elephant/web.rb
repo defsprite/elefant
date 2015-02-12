@@ -1,5 +1,7 @@
 require "sinatra"
 require "sinatra/partial"
+require "i18n"
+require "i18n/backend/fallbacks"
 
 module Elephant
   class Web < Sinatra::Base
@@ -10,10 +12,17 @@ module Elephant
     set :public_folder, "#{dir}/public"
     set :views, "#{dir}/views"
     set :root, "#{dir}/public"
-    # set :locales, "#{dir}/locales"
+    set :locales, "#{dir}/locales"
 
     set :partial_template_engine, :erb
     set :layout_engine, :erb
+
+    configure do
+      Elephant::Stats.check!
+      I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+      I18n.load_path = Dir[File.join(settings.locales, '*.yml')]
+      I18n.backend.load_translations
+    end
 
     before do
       @stats ||= Elephant::Stats.new
@@ -37,7 +46,8 @@ module Elephant
         stats.get(name, params)
       end
 
-      def table_helper(fields, results)
+      def t(*args)
+        I18n.t(*args)
       end
     end
 

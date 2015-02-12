@@ -20,10 +20,12 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'pg', '~> 0.15'
   gem.add_dependency 'sinatra'
   gem.add_dependency 'sinatra-partial'
+  gem.add_dependency 'i18n'
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'rack-test'
   gem.add_development_dependency 'watchr'
   gem.add_development_dependency 'activerecord'
+  gem.add_development_dependency 'sass'
 end

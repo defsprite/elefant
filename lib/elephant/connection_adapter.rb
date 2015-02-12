@@ -10,7 +10,7 @@ module Elephant
       @connection = connection.nil? ? establish_new : validate!(connection)
     end
 
-    def execute(stmt, *params)
+    def execute(stmt, params = [])
       begin
         params = nil if params.empty?
         r = @connection.exec(stmt, params)
@@ -34,7 +34,7 @@ module Elephant
           @connection.close
         end
       rescue => e
-        #QC.log(:at => "disconnect", :error => e.message)
+        # TODO: log something and do sensible stuff
         raise e
       end
     end
@@ -46,12 +46,15 @@ module Elephant
       false
     end
 
-    def db_name
-      @connection.db
+    def info
+      @info ||= {
+          db_name: @connection.db,
+          server_version: connection.server_version.to_s.tr('0','.').gsub(/(\.)+\z/, '')
+      }
     end
 
-    def postgresql_version
-      @connection.server_version
+    def db_name
+      @connection.db
     end
 
     def active_record?

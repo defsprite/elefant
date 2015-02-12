@@ -1,0 +1,49 @@
+@import "normalize";
+@import "fonts";
+@import "skeleton";
+@import "typography";
+
+$monospaced: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: "Clear Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+table th, table tbody {
+  font-family: $monospaced;
+
+  td {
+    text-align: right;
+  }
+}
+
+.logo {
+  margin-bottom: 1rem;
+  background: url('../img/postgresql_logo.svg') 0px 7px no-repeat;
+  background-size: 35px 35px;
+
+  .version {
+    padding: 1rem 0 1rem 50px;
+  }
+}
+
+dl {
+  dt {
+    margin: 0 5% 0 0;
+    display: inline-block;
+    width: 20%;
+  }
+
+  dd {
+    margin: 0;
+    display: inline-block;
+    width: 74%;
+    font-family: $monospaced;
+    font-size: 1.3rem;
+
+  }
+}
