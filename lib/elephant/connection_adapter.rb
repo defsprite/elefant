@@ -49,7 +49,8 @@ module Elephant
     def info
       @info ||= {
           db_name: @connection.db,
-          server_version: connection.server_version.to_s.tr('0','.').gsub(/(\.)+\z/, '')
+          server_version: version_str(connection.server_version),
+          client_version: (PG.respond_to?( :library_version ) ? version_str(PG.library_version) : 'unknown')
       }
     end
 
@@ -62,6 +63,10 @@ module Elephant
     end
 
     private
+
+    def version_str(number)
+      number.to_s.tr('0','.').gsub(/(\.)+\z/, '')
+    end
 
     def validate!(c)
       return c if c.is_a?(PG::Connection)

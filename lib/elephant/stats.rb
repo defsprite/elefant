@@ -19,6 +19,10 @@ module Elephant
       @connection.info[:server_version]
     end
 
+    def client_version
+      @connection.info[:client_version]
+    end
+
     def get(name, params)
       query(name, params)
     end

@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
+  <title><%= stats.db_name %></title>
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/elephant.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="img/favicon.png">
 
 </head>
 <body>
+<div class="content">
+  <nav class="navbar">
+    <div class="row">
+      <div class="twelve columns menu">
+        <ul>
+          <li><a href="." class="logo">&nbsp;</a></li>
+          <li><a href="activity" class="">Activity</a></li>
+          <li><a href="indices" class="">Indices</a></li>
+          <li><a href="size" class="">Size</a></li>
+          <li><a href="tables" class="">Tables</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div>
+      <div class="twelve columns menu">
 
-<!-- Primary Page Layout
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div class="container">
-  <div class="row logo">
-    <div class="twelve columns version">
-      <strong><%= stats.db_name %></strong> on PostgreSQL <strong><%= stats.version %></strong>
+      </div>
+    </div>
+    <div class="row content">
+      <div class="twelve columns">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="push"></div>
+  </div>
+  </div>
+<footer>
+  <div class="row">
+    <div class="twelve columns menu">
+      <strong><%= stats.db_name %></strong> &ndash; <strong>PG <%= stats.version %></strong>
+      <small> (client version <%= stats.client_version %>)</small>
     </div>
   </div>
-  <div class="row content">
-    <div class="twelve columns">
-      <%= yield %>
-    </div>
-  </div>
-</div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</footer>
 </body>
 </html>

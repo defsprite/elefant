@@ -38,11 +38,7 @@ module Elephant
         @stats ||= Elephant::Stats.new
       end
 
-      def field_stats(name, fields = [["*"]])
-        stats.get(name, fields)
-      end
-
-      def param_stats(name, params = [])
+      def get_stats(name, params = [])
         stats.get(name, params)
       end
 
@@ -63,8 +59,8 @@ module Elephant
       erb :indices
     end
 
-    get "/load" do
-      erb :load
+    get "/tables" do
+      erb :tables
     end
 
     get "/size" do

@@ -18,3 +18,8 @@ en:
     del:     "deletes"
     locks:   "locks"
     activeq: "max active queries"
+    kind:
+      i: "index"
+      t: "toast"
+      r: "table"
+      S: "sequence"

@@ -1,0 +1,6 @@
+<%
+   info = get_stats("user_tables")
+%>
+<h3>Indices</h3>
+<% fields = %w(relname heap_blks_read heap_blks_hit idx_blks_read idx_blks_hit toast_blks_read toast_blks_hit tidx_blks_read tidx_blks_hit) %>
+<%= partial 'partials/field_table', :locals => {:data => info, :fields => fields} %>

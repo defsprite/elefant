@@ -1,10 +1,10 @@
 <table>
   <thead>
   <tr>
-    <% if rows.empty? %>
+    <% if data.empty? %>
       <th>Empty results!</th>
     <% else %>
-      <% fields = rows[0].keys  %>
+      <% fields = data[0].keys  %>
       <% fields.each do |field| %>
         <th><%= field %></th>
       <% end %>
@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <% rows.each do |row| %>
+  <% data.each do |row| %>
     <tr>
       <% fields.each do |field| %>
         <td><%= row[field] %></td>

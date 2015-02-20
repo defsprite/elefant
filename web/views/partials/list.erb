@@ -1,0 +1,6 @@
+<dl>
+  <% data.each do |data, value| %>
+    <dt><%= t(data, scope: "db") %></dt>
+    <dd><%= value %></dd>
+  <% end %>
+</dl>

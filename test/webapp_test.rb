@@ -11,8 +11,29 @@ describe "the elephant web interface" do
     Elephant::Web
   end
 
-  it "shows basic database info" do
+  it "shows a database summary" do
     get "/"
     assert last_response.ok?
   end
+
+  it "shows activity info" do
+    get "/activity"
+    assert last_response.ok?
+  end
+
+  it "shows info about indices" do
+    get "/indices"
+    assert last_response.ok?
+  end
+
+  it "shows table info" do
+    get "/tables"
+    assert last_response.ok?
+  end
+
+  it "shows size info" do
+    get "/size"
+    assert last_response.ok?
+  end
+
 end

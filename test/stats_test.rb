@@ -9,18 +9,18 @@ class StatsTest < PGTest
   end
 
   def test_retrieves_activity
-    result = @stats.get("activity", [["*"]])
+    result = @stats.get("activity", [])
 
     assert_instance_of Array, result
     refute_empty result
   end
 
   def test_retrieves_user_indices
-    result = @stats.get("user_indexes", [["*"]])
+    result = @stats.get("user_indexes", [])
 
     assert_instance_of Array, result
     refute_empty result
-    assert_equal "elephant_test_models", result[0]["relname"]
+    assert_equal "elephant_test_models", result[0]["rel_name"]
   end
 
   def test_raises_for_unknown
@@ -29,3 +29,4 @@ class StatsTest < PGTest
     end
   end
 end
+

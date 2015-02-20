@@ -7,6 +7,7 @@
 watch( '^test.*/*_test.*\.rb'                )  { rake } # or run specific one { |m| ruby m[0] }
 watch( '^lib/(.*)\.rb'                       )  { rake } # { |m| ruby "test/test_#{m[1]}.rb" }
 watch( '^test/test_helper\.rb'               )  { rake }
+watch( '^web/views/(.*)\.(.*)'               )  { rake }
 watch( '^web/public/css/(.*)\.scss'          )  { sass }
 
 # --------------------------------------------------
