@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/partial"
 require "i18n"
 require "i18n/backend/fallbacks"
+require "elephant"
 
 module Elephant
   class Web < Sinatra::Base
@@ -66,6 +67,5 @@ module Elephant
     get "/size" do
       erb :size
     end
-
   end
 end
