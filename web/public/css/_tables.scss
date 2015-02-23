@@ -1,0 +1,36 @@
+table {
+  font-family: $monospaced;
+  font-size: 1.2rem;
+
+  th, td {
+    padding: 0.5em 1.0em;
+  }
+
+  th.numeric {
+    padding: 0;
+    transform-origin: 100% 0%;
+    transform: rotate(45deg) translateX(0.5em);
+    text-align: right;
+    width: 4rem;
+  }
+
+  td.numeric {
+    width: 4rem;
+    text-align: right;
+  }
+
+  td.left {
+    text-align: left;
+  }
+
+  td.long-text{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    max-width: 30em;
+
+    a {
+      cursor: pointer;
+    }
+  }
+}

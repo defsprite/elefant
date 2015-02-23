@@ -1,10 +1,11 @@
 @import "normalize";
+@import "variables";
 @import "fonts";
 @import "skeleton";
 @import "typography";
-
-$monospaced: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
-$primary-color: rgb(51,103,145);
+@import "tables";
+@import "lists";
+@import "nav";
 
 * {
   box-sizing: border-box;
@@ -18,114 +19,6 @@ body {
   color: #222;
 }
 
-table {
-  font-family: $monospaced;
-  font-size: 1.2rem;
-
-  th, td {
-    padding: 0.5em;
-    text-align: right;
-  }
-
-  th {
-    padding: 0;
-    transform-origin: 100% 100%;
-    transform: rotate(45deg);
-  }
-
-  td.left {
-    text-align: left;
-  }
-}
-
-dl {
-  dt {
-    margin: 0 5% 0 0;
-    display: inline-block;
-    width: 20%;
-  }
-
-  dd {
-    margin: 0;
-    display: inline-block;
-    width: 74%;
-    font-family: $monospaced;
-    font-size: 1.3rem;
-
-  }
-}
-
-a.menu-button {
-  display: inline-block;
-  height: 26px;
-  padding: 0 26px;
-  color: #555;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 26px;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: transparent;
-  border-radius: 4px;
-  border: 1px solid #bbb;
-  cursor: pointer;
-  box-sizing: border-box;
-
-  &:hover {
-    color: $primary-color;
-    border: 1px solid $primary-color;
-  }
-}
-
-a.logo {
-  background: url('../img/postgresql_logo.svg') 5px 5px no-repeat;
-  background-size: 40px 40px;
-  width: 5rem;
-}
-
-.navbar {
-  height: 5rem;
-  margin-bottom: 1rem;
-  background-color: #E1E1E1;
-
-  .version {
-    padding: 1rem 1rem 1rem 50px;
-  }
-
-  ul, ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    height: 5rem;
-    line-height: 5rem;
-
-    li {
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-      line-height: inherit;
-      height: 100%;
-
-      a {
-        padding: 0 1.25rem;
-        line-height: 5rem;
-        display: block;
-        color: $primary-color;
-        text-decoration: none;
-        //text-transform: uppercase;
-        //font-weight: 600;
-      }
-
-      a:hover {
-        background-color: #bababa;
-      }
-    }
-  }
-}
-
 html, body {
   padding: 0;
   height: 100%;
@@ -136,6 +29,7 @@ html, body {
   margin: 0 auto -5rem;
   padding-bottom: 2.5rem;
 }
+
 footer, .push {
   height: 5rem;
 }
@@ -144,3 +38,4 @@ footer {
   color: white;
   background-color: #555  ;
 }
+

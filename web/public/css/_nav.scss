@@ -1,0 +1,70 @@
+.navbar {
+  height: 5rem;
+  margin-bottom: 1rem;
+  background-color: #E1E1E1;
+
+  .version {
+    padding: 1rem 1rem 1rem 50px;
+  }
+
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 5rem;
+    line-height: 5rem;
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      line-height: inherit;
+      height: 100%;
+
+      a {
+        padding: 0 1.25rem;
+        line-height: 5rem;
+        display: block;
+        color: $primary-color;
+        text-decoration: none;
+        //text-transform: uppercase;
+        //font-weight: 600;
+      }
+
+      a:hover {
+        background-color: #bababa;
+      }
+    }
+  }
+}
+
+a.menu-button {
+  display: inline-block;
+  height: 26px;
+  padding: 0 26px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    color: $primary-color;
+    border: 1px solid $primary-color;
+  }
+}
+
+a.logo {
+  background: url('../img/postgresql_logo.svg') 5px 5px no-repeat;
+  background-size: 40px 40px;
+  width: 5rem;
+}

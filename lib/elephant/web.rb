@@ -44,6 +44,10 @@ module Elephant
         stats.get(name, params)
       end
 
+      def css_for(field)
+        Elephant::Stats::NUMBER_FIELDS.include?(field) ? "numeric" : "text"
+      end
+
       def t(*args)
         I18n.t(*args)
       end

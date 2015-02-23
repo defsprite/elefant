@@ -3,4 +3,25 @@
    fields = %w(act_user act_app act_c_addr act_q_start act_state act_qry)
 %>
 <h3>Activity</h3>
-<%= partial "partials/field_table", locals: {data: info, :fields => fields} %>
+<table>
+  <thead>
+  <tr>
+    <% fields.each do |field| %>
+      <th class="<%= css_for(field) %>"><%= field %></th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% info.each do |row| %>
+    <tr>
+      <td class=""><%= row[fields[0]] %></td>
+      <td class=""><%= row[fields[1]] %></td>
+      <td class=""><%= row[fields[2]] %></td>
+      <td class=""><%= row[fields[3]] %></td>
+      <td class=""><%= row[fields[4]] %></td>
+      <% qry = row[fields[5]] %>
+      <td class="long-text"><a title="<%= qry %>"><%= qry %></a></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

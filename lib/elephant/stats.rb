@@ -7,6 +7,8 @@ module Elephant
     include Elephant::Postgres::StatQueries
     include Elephant::Postgres::SizeQueries
 
+    NUMBER_FIELDS = %w(idx_scn idx_tup_rd idx_tup_ftch)
+
     def initialize
       @connection = Elephant::ConnectionAdapter.new
     end

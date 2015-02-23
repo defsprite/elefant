@@ -32,7 +32,16 @@ module Elephant::Postgres
     end
 
     def user_tables
-      exec "SELECT * FROM pg_statio_user_tables;"
+      exec %Q{
+        SELECT
+          relname        AS rel_name,
+          heap_blks_read AS heap_blks_rd,
+          heap_blks_hit  AS heap_blks_ht,
+          idx_blks_read  AS idx_blks_rd,
+          idx_blks_hit   AS idx_blks_ht
+        FROM
+          pg_statio_user_tables;
+      }
     end
 
     def user_indexes

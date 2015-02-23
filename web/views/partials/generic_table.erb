@@ -6,7 +6,7 @@
     <% else %>
       <% fields = data[0].keys  %>
       <% fields.each do |field| %>
-        <th><%= field %></th>
+        <th class="<%= css_for(field) %>"><%= field %></th>
       <% end %>
     <% end %>
   </tr>
@@ -15,7 +15,7 @@
   <% data.each do |row| %>
     <tr>
       <% fields.each do |field| %>
-        <td><%= row[field] %></td>
+        <td class="<%= css_for(field) %>"><%= row[field] %></td>
       <% end %>
     </tr>
   <% end %>
