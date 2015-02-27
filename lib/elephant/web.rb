@@ -23,7 +23,6 @@ module Elephant
       I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
       I18n.load_path = Dir[File.join(settings.locales, '*.yml')]
       I18n.backend.load_translations
-      I18n.default_locale = :en
     end
 
     before do
@@ -48,8 +47,9 @@ module Elephant
         Elephant::Stats::NUMBER_FIELDS.include?(field) ? "numeric" : "text"
       end
 
-      def t(*args)
-        I18n.t(*args)
+      def t(*args, options)
+        options.merge!(locale: :en)
+        I18n.t(*args, options)
       end
     end
 
