@@ -81,7 +81,7 @@ module Elephant
                    else
                      establish_pg
                    end
-      connection.exec("SET application_name = 'Elefant stats gem #{Elephant::VERSION}'")
+      connection.exec("SET application_name = 'Elefant Stats #{Elephant::VERSION}'")
       connection
     end
 
