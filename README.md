@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/defsprite/elefant.svg?branch=master)](https://travis-ci.org/defsprite/elefant)
 
 When you are running a small / medium sized project, there is usually not a dedicated DBA and you rarely care about the database analytics that PostgreSQL gives you for free.
-Elefant tries to help a little with that by providing web interface for some basic database analytics as a small mountable rack application.
+Elefant tries to help a little by providing a web interface for some basic database analytics as a small mountable rack application.
 
 ![Screenshot](https://raw.githubusercontent.com/defsprite/elefant/master/web/public/img/screenshot.png)
 
@@ -55,6 +55,7 @@ authenticate(:admin) do
 end 
 ```
 
+## 
 
 ## Contributing
 
