@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{The elefant gem gives you a few insights analytics about your PostgreSQL database}
   gem.summary       = %q{Know your PostgreSQL database}
   gem.homepage      = "http://github.com/defsprite/elefant"
+  gem.licenses      = ["MIT"]
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -18,14 +19,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency 'pg', '~> 0.15'
-  gem.add_dependency 'sinatra'
-  gem.add_dependency 'sinatra-partial'
-  gem.add_dependency 'i18n'
+  gem.add_dependency 'sinatra', '~> 1.4'
+  gem.add_dependency 'sinatra-partial', '~> 0.4'
+  gem.add_dependency 'i18n', '~> 0.7'
 
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'minitest'
-  gem.add_development_dependency 'rack-test'
-  gem.add_development_dependency 'watchr'
-  gem.add_development_dependency 'activerecord'
-  gem.add_development_dependency 'sass'
+  gem.add_development_dependency 'rake', '~> 10.4'
+  gem.add_development_dependency 'minitest', '~> 5.5'
+  gem.add_development_dependency 'rack-test', '~> 0.6'
+  gem.add_development_dependency 'watchr', '~> 0.7'
+  gem.add_development_dependency 'activerecord', '~> 4.2'
+  gem.add_development_dependency 'sass', '~> 3.4'
 end
