@@ -113,9 +113,9 @@ module Elefant
     def db_url
       return @db_url if defined?(@db_url) && @db_url
 
-      url = ENV["ELEPHANT_DATABASE_URL"] ||
+      url = ENV["ELEFANT_DATABASE_URL"] ||
           ENV["DATABASE_URL"] ||
-          raise(ArgumentError, "missing ELEPHANT_DATABASE_URL or DATABASE_URL")
+          raise(ArgumentError, "missing ELEFANT_DATABASE_URL or DATABASE_URL")
       @db_url = URI.parse(url)
     end
   end

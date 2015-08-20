@@ -23,15 +23,36 @@ Or install it yourself as:
 
 ### Standalone
 
-    $ DATABASE_URL=postgres:///some_local_db elefant-web
+Run the web interface as a standalone rack application:
 
-- configure DATABASE_URL or ELEPHANT_DATABASE_URL
-- mount as rack app in rails
-- run standalone via rackup
+    $ DATABASE_URL=postgres:///some_db_connection_string elefant-web
+    
+or if you want to use a different database specifically for elefant:
 
-## TODO
+    $ ELEFANT_DATABASE_URL=postgres:///some_db_connection_string elefant-web
 
-- detect active record and use connection from pool.
+### Rails
+    
+You can mount the web interface in a rails application by adding this to `config/routes.rb`:
+
+```ruby
+require 'elefant/web'
+mount Elefant::Web => '/elefant'
+```
+It will pick up a connection from the `ActiveRecord` connection pool.
+
+:warning: There is no authentication built in! Mounting it as described above is a bad idea in almost any case! :warning:
+
+In case you are using [Devise](https://github.com/plataformatec/devise), here is an example of mounting only for 
+authenticated users of the `:admin` scope:
+
+```ruby
+authenticate(:admin) do
+  require 'elefant/web'
+  mount Elefant::Web => '/elefant'
+end 
+```
+
 
 ## Contributing
 
