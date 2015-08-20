@@ -17,3 +17,5 @@ test/version_tmp
 tmp
 test/config.yml
 .sass-cache
+**/.DS_Store
+

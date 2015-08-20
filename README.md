@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/defsprite/elefant.svg?branch=master)](https://travis-ci.org/defsprite/elefant)
 
 When you are running a small / medium sized project, there is usually not a dedicated DBA and you rarely care about the database analytics that PostgreSQL gives you for free.
-Elefant tries to help a little with that by providing a small mountable rack application, that gives you a few insights into your database.
+Elefant tries to help a little with that by providing a small mountable rack application that gives you a few insights into your database.
 
 ## Installation
 

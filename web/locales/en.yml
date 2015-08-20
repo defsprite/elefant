@@ -23,3 +23,11 @@ en:
       t: "toast"
       r: "table"
       S: "sequence"
+  css:
+    idx_scn:      "numeric"
+    idx_tup_rd:   "numeric"
+    idx_tup_ftch: "numeric"
+    heap_blks_rd: "numeric"
+    heap_blks_ht: "numeric"
+    idx_blks_rd:  "numeric"
+    idx_blks_ht:  "numeric"

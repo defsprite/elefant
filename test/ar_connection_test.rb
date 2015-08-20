@@ -24,7 +24,7 @@ describe "ActiveRecord being loaded" do
       ENV["DATABASE_URL"] = @db_url
 
       Elephant.configure do |c|
-        c.disable_ar = false
+        c.disable_ar = @old_ar_config_value
       end
     end
 

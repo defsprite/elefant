@@ -81,7 +81,7 @@ module Elephant
                    else
                      establish_pg
                    end
-      connection.exec("SET application_name = 'Elefant stats gem #{Elephant::VERSION}'")
+      connection.exec("SET application_name = 'Elefant Stats #{Elephant::VERSION}'")
       connection
     end
 
@@ -93,8 +93,7 @@ module Elephant
     end
 
     def establish_ar
-      # Shucks! This is probably a very bad idea.
-      ActiveRecord::Base.connection.send(:instance_variable_get, :@connection)
+      ActiveRecord::Base.connection.raw_connection
     end
 
     def normalize_db_url(url)

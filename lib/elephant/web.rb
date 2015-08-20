@@ -45,32 +45,33 @@ module Elephant
       end
 
       def css_for(field)
-        Elephant::Stats::NUMBER_FIELDS.include?(field) ? "numeric" : "text"
+        I18n.t(field, scope: "css", default: "")
       end
 
       def t(*args)
         I18n.t(*args)
       end
+
+      def link(name, target, params = {})
+        extra = params.any? ? "?" + params.map {|k, v| "#{k}=#{v}" }.join("&") : ""
+        %Q{<a href="#{target}#{extra}">#{name}</a>}
+      end
     end
 
     get "/" do
-      erb :index
+      redirect "/summary", 302
     end
 
-    get "/activity" do
-      erb :activity
+    get "/:name" do
+      name = params[:name]
+      if %w(activity indices size summary tables).include?(name)
+        erb name.to_sym
+      else
+        not_found do
+          "Page not found! Sorry."
+        end
+      end
     end
 
-    get "/indices" do
-      erb :indices
-    end
-
-    get "/tables" do
-      erb :tables
-    end
-
-    get "/size" do
-      erb :size
-    end
   end
 end

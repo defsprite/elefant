@@ -11,8 +11,15 @@ describe "the elephant web interface" do
     Elephant::Web
   end
 
-  it "shows a database summary" do
+  it "redirects to the summary on the index page" do
     get "/"
+
+    assert last_response.redirect?
+    assert last_response.location.match("/summary")
+  end
+
+  it "shows a database summary" do
+    get "/summary"
     assert last_response.ok?
   end
 
