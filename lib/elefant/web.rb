@@ -68,7 +68,7 @@ module Elefant
     end
 
     get "/" do
-      redirect "/summary", 302
+      redirect "#{root_path}summary", 302
     end
 
     get "/:name" do
