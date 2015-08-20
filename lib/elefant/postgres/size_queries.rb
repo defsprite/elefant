@@ -1,4 +1,4 @@
-module Elephant
+module Elefant
   module Postgres
     module SizeQueries
 

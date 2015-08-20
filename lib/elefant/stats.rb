@@ -1,14 +1,14 @@
-require "elephant/connection_adapter"
-require "elephant/postgres/stat_queries"
-require "elephant/postgres/size_queries"
+require "elefant/connection_adapter"
+require "elefant/postgres/stat_queries"
+require "elefant/postgres/size_queries"
 
-module Elephant
+module Elefant
   class Stats
-    include Elephant::Postgres::StatQueries
-    include Elephant::Postgres::SizeQueries
+    include Elefant::Postgres::StatQueries
+    include Elefant::Postgres::SizeQueries
 
     def initialize
-      @connection = Elephant::ConnectionAdapter.new
+      @connection = Elefant::ConnectionAdapter.new
     end
 
     def db_name
@@ -32,7 +32,7 @@ module Elephant
     end
 
     def self.check!
-      connection = Elephant::ConnectionAdapter.new
+      connection = Elefant::ConnectionAdapter.new
       raise ArgumentError.new("Could not establish connection") unless connection.alive?
       connection.disconnect
     end

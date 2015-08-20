@@ -2,9 +2,9 @@ require "sinatra"
 require "sinatra/partial"
 require "i18n"
 require "i18n/backend/fallbacks"
-require "elephant"
+require "elefant"
 
-module Elephant
+module Elefant
   class Web < Sinatra::Base
     register Sinatra::Partial
 
@@ -19,14 +19,14 @@ module Elephant
     set :layout_engine, :erb
 
     configure do
-      Elephant::Stats.check!
+      Elefant::Stats.check!
       I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
       I18n.load_path = Dir[File.join(settings.locales, '*.yml')]
       I18n.backend.load_translations
     end
 
     before do
-      @stats ||= Elephant::Stats.new
+      @stats ||= Elefant::Stats.new
     end
 
     after do
@@ -36,7 +36,7 @@ module Elephant
     helpers do
 
       def stats
-        @stats ||= Elephant::Stats.new
+        @stats ||= Elefant::Stats.new
       end
 
       def get_stats(name, params = [])

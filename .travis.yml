@@ -9,5 +9,5 @@ addons:
   postgresql: "9.3"
 
 before_script:
-  - psql -c 'create database elephant_test;' -U postgres
+  - psql -c 'create database elefant_test;' -U postgres
   - cp test/config.yml.example test/config.yml

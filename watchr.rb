@@ -25,7 +25,7 @@ def rake
 end
 
 def sass
-  run "bundle exec sass --style compressed --scss -I web/public/css/ web/public/css/elephant.scss web/public/css/elephant.css"
+  run "bundle exec sass --style compressed --scss -I web/public/css/ web/public/css/elefant.scss web/public/css/elefant.css"
 end
 
 def run( cmd )

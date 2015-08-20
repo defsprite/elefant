@@ -1,4 +1,4 @@
-module Elephant::Postgres
+module Elefant::Postgres
   module StatQueries
 
     def initialize(connection)

@@ -17,31 +17,31 @@ describe "ActiveRecord being loaded" do
       ActiveRecord::Base.establish_connection(YAML::load(File.open(config_file)))
       ActiveRecord::Base.connection.execute("SELECT 1")
 
-      @old_ar_config_value = Elephant.configuration.disable_ar
+      @old_ar_config_value = Elefant.configuration.disable_ar
     end
 
     after do
       ENV["DATABASE_URL"] = @db_url
 
-      Elephant.configure do |c|
+      Elefant.configure do |c|
         c.disable_ar = @old_ar_config_value
       end
     end
 
     it "connects to the test database using AR" do
-      connection = Elephant::ConnectionAdapter.new
+      connection = Elefant::ConnectionAdapter.new
 
       assert connection.alive?, "Connection must be alive"
       assert connection.active_record?, "Connection must be active record"
     end
 
     it "does not use active record when disabled in the configuration" do
-      Elephant.configure do |c|
+      Elefant.configure do |c|
         c.disable_ar = true
       end
 
       assert_raises ArgumentError do
-        Elephant::ConnectionAdapter.new
+        Elefant::ConnectionAdapter.new
       end
     end
   end

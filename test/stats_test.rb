@@ -1,11 +1,11 @@
 require "test_helper"
-require "elephant/stats"
+require "elefant/stats"
 
 class StatsTest < PGTest
 
   def setup
     super
-    @stats = Elephant::Stats.new
+    @stats = Elefant::Stats.new
   end
 
   def test_retrieves_activity
@@ -20,7 +20,7 @@ class StatsTest < PGTest
 
     assert_instance_of Array, result
     refute_empty result
-    assert_equal "elephant_test_models", result[0]["rel_name"]
+    assert_equal "elefant_test_models", result[0]["rel_name"]
   end
 
   def test_raises_for_unknown

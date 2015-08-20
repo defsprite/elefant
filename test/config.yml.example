@@ -1,4 +1,4 @@
 adapter: postgresql
-database: elephant_test
+database: elefant_test
 user: postgres
 password:

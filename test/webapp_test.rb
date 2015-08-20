@@ -1,14 +1,14 @@
 require "test_helper"
 require "rack/test"
-require "elephant/web"
+require "elefant/web"
 
 ENV["RACK_ENV"] = "test"
 
-describe "the elephant web interface" do
+describe "the elefant web interface" do
   include Rack::Test::Methods
 
   def app
-    Elephant::Web
+    Elefant::Web
   end
 
   it "redirects to the summary on the index page" do

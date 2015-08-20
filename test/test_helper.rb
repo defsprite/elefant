@@ -4,12 +4,12 @@ $: << File.expand_path("test")
 require "bundler"
 Bundler.setup :default, :test
 
-ENV["DATABASE_URL"] ||= "postgres:///elephant_test"
+ENV["DATABASE_URL"] ||= "postgres:///elefant_test"
 
-require "elephant"
+require "elefant"
 require "minitest/autorun"
 
-Elephant.configure do |c|
+Elefant.configure do |c|
   c.disable_ar = false
 end
 
@@ -24,13 +24,13 @@ class PGTest < Minitest::Test
   end
 
   def init_db
-    c = Elephant::ConnectionAdapter.new
+    c = Elefant::ConnectionAdapter.new
     c.execute(File.read('./test/fixtures/test_models.sql'))
     c.disconnect
   end
 
   def reset_db
-    c = Elephant::ConnectionAdapter.new
+    c = Elefant::ConnectionAdapter.new
     c.execute(File.read('./test/fixtures/teardown.sql'))
     c.disconnect
   end

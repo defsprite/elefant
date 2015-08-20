@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'elephant/version'
+require 'elefant/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "elefant"
-  gem.version       = Elephant::VERSION
+  gem.version       = Elefant::VERSION
   gem.authors       = ["Christoph Sassenberg"]
   gem.email         = ["christoph.sassenberg@googlemail.com"]
   gem.description   = %q{The elefant gem gives you a few insights analytics about your PostgreSQL database}

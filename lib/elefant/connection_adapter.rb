@@ -1,7 +1,7 @@
 require "uri"
 require "pg"
 
-module Elephant
+module Elefant
   class ConnectionAdapter
 
     attr_accessor :connection
@@ -59,7 +59,7 @@ module Elephant
     end
 
     def active_record?
-      defined?(ActiveRecord::Base) == "constant" && ActiveRecord::Base.class == Class && !Elephant.configuration.disable_ar
+      defined?(ActiveRecord::Base) == "constant" && ActiveRecord::Base.class == Class && !Elefant.configuration.disable_ar
     end
 
     private
@@ -81,7 +81,7 @@ module Elephant
                    else
                      establish_pg
                    end
-      connection.exec("SET application_name = 'Elefant Stats #{Elephant::VERSION}'")
+      connection.exec("SET application_name = 'Elefant Stats #{Elefant::VERSION}'")
       connection
     end
 

@@ -1,7 +1,7 @@
-require "elephant/version"
-require "elephant/stats"
+require "elefant/version"
+require "elefant/stats"
 
-module Elephant
+module Elefant
 
   def self.configuration
     @configuration ||= Configuration.new

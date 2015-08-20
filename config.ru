@@ -1,4 +1,4 @@
-require 'elephant'
-require 'elephant/web'
+require 'elefant'
+require 'elefant/web'
 
-run Elephant::Web
+run Elefant::Web
