@@ -41,7 +41,7 @@ mount Elefant::Web => '/elefant'
 ```
 It will pick up a connection from the `ActiveRecord` connection pool.
 
-:warning: There is no authentication built in! Mounting it as described above is a bad idea in almost any case! :warning:
+:warning: There is no authentication built in! Mounting it as described above is probably a bad idea! :warning:
 
 In case you are using [Devise](https://github.com/plataformatec/devise), here is an example of mounting only for 
 authenticated users of the `:admin` scope:
