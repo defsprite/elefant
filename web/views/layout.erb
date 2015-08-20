@@ -19,11 +19,12 @@
     <div class="row">
       <div class="eleven columns menu">
         <ul>
-          <li><a href="summary" class="logo">&nbsp;</a></li>
+          <li><a href="<%= root_path %>" class="logo">&nbsp;</a></li>
+          <li><%= link "Summary", "summary" %></li>
           <li><%= link "Activity", "activity" %></li>
-          <li><a href="indices" class="">Indices</a></li>
-          <li><a href="size" class="">Size</a></li>
-          <li><a href="tables" class="">Tables</a></li>
+          <li><%= link "Indices", "indices" %></li>
+          <li><%= link "Size", "size" %></li>
+          <li><%= link "Tables", "tables" %></li>
         </ul>
       </div>
       <div class="one column">

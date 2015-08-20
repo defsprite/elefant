@@ -34,6 +34,10 @@
       a:hover {
         background-color: #bababa;
       }
+
+      a.active {
+        background-color: #bababa;
+      }
     }
   }
 }
@@ -68,3 +72,4 @@ a.logo {
   background-size: 40px 40px;
   width: 5rem;
 }
+

@@ -54,7 +54,16 @@ module Elefant
 
       def link(name, target, params = {})
         extra = params.any? ? "?" + params.map {|k, v| "#{k}=#{v}" }.join("&") : ""
-        %Q{<a href="#{target}#{extra}">#{name}</a>}
+        css = target == current_path ? 'active' : ''
+        %Q{<a href="#{root_path}#{target}#{extra}" class="#{css}">#{name}</a>}
+      end
+
+      def root_path
+        %Q{#{env['SCRIPT_NAME']}/}
+      end
+
+      def current_path
+        @current_path ||= request.path_info.gsub(/^\//,'')
       end
     end
 
