@@ -1,7 +1,6 @@
 require "sinatra"
 require "sinatra/partial"
 require "i18n"
-require "i18n/backend/fallbacks"
 require "elefant"
 
 module Elefant
@@ -20,8 +19,7 @@ module Elefant
 
     configure do
       Elefant::Stats.check!
-      I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-      I18n.load_path = Dir[File.join(settings.locales, '*.yml')]
+      I18n.load_path += Dir[File.join(settings.locales, '*.yml')]
       I18n.backend.load_translations
     end
 
