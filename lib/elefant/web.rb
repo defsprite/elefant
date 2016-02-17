@@ -44,7 +44,7 @@ module Elefant
       end
 
       def css_for(field)
-        I18n.t(field, scope: "css", default: "")
+        I18n.t(field, scope: "css", locale: :en)
       end
 
       def t(*args, options)
